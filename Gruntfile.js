@@ -33,8 +33,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= appConfig.app %>/scripts/{,*/}*.js'],
-        tasks: ['newer:jshint:all'],
+        files: ['<%= appConfig.app %>/src/{,*/}*.js'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -61,7 +60,6 @@ module.exports = function (grunt) {
         ]
       }
     },
-
     // The actual grunt server settings
     connect: {
       options: {
@@ -118,7 +116,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= appConfig.app %>/scripts/{,*/}*.js'
+          '<%= appConfig.app %>/src/{,*/}*.js'
         ]
       },
       test: {
@@ -178,7 +176,7 @@ module.exports = function (grunt) {
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
         imagesDir: '<%= appConfig.app %>/images',
-        javascriptsDir: '<%= appConfig.app %>/scripts',
+        javascriptsDir: '<%= appConfig.app %>/src',
         fontsDir: '<%= appConfig.app %>/styles/fonts',
         importPath: './bower_components',
         httpImagesPath: '/images',
@@ -204,7 +202,7 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= appConfig.dist %>/scripts/{,*/}*.js',
+          '<%= appConfig.dist %>/src/{,*/}*.js',
           '<%= appConfig.dist %>/styles/{,*/}*.css',
           '<%= appConfig.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= appConfig.dist %>/styles/fonts/*'
@@ -312,9 +310,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '.tmp/concat/scripts',
+          cwd: '.tmp/concat/src',
           src: ['*.js', '!oldieshim.js'],
-          dest: '.tmp/concat/scripts'
+          dest: '.tmp/concat/src'
         }]
       }
     },
@@ -382,6 +380,7 @@ module.exports = function (grunt) {
   });
 
 
+
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -392,7 +391,6 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer',
-      'concat',
       'connect:livereload',
       'watch'
     ]);
@@ -427,6 +425,8 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
+
+
 
   grunt.registerTask('default', [
     'newer:jshint',

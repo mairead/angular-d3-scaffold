@@ -1,4 +1,5 @@
 {
+  "browserify": true,
   "globalstrict": true,
   "node": true,
   "browser": true,
@@ -20,6 +21,7 @@
   "trailing": true,
   "smarttabs": true,
   "globals": {
+    "browserify": true,
     "angular": false,
     "describe": false,
     "it": false,
