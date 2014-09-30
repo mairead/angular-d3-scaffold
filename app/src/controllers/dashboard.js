@@ -10,7 +10,7 @@ var Dashboard = (function () {
 
 	  this.yesplz = 'wut?';
 
-	  this.awesomeThings = [0,0,0];
+	  this.dashboardItems = [0,0,0,0];
 	}
 
 	Dashboard.$inject = ['$scope'];

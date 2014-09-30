@@ -15,27 +15,32 @@
 
 	</head>
 
-	<body ng-app="Dashboard">
+	<body ng-app="BigData">
 
 
-		<div class="page-container" ng-controller="DashboardCtrl">
-      
-      <h2>My Dashboard</h2>
-      
-<!--       <ul class="todo-list" ng-repeat="todo in todos track by $index">
-        <li>
-          <span>{{todo}}</span>
-          <button class="bt bt-achieve" ng-click="done(todo)">Done</button>
-        </li>
-     
-      </ul>
-      
-      <ul class="add-todo">
-		    <li>
-		      <input type="text" class="txt" placeholder="New Todo"
-		             ng-model="newTodo" ng-keyup="add($event)" />
-		    </li>
-		  </ul> -->
+		<div class="page-container" >
+
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a href="index.html">Dashboard</a>
+          </li>
+          <li>
+            <a href="animator.html">Animator</a>
+          </li>
+          <li>
+            <a href="d3.html">D3</a>
+          </li>
+          <li>
+            <a href="jsonLoader.html" class="active">Json</a>
+          </li>
+          <li>
+            <a href="canvas.html">Canvas</a>
+          </li>
+        </ul>
+        
+      </nav>
+
       
     </div>
 		
@@ -54,11 +59,13 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-		<script src="scripts/app.js"></script>	
-		<!-- <script src="scripts/controllers/canvasCtrl.js"></script> -->
-		<!-- <script src="scripts/controllers/dashboardCtrl.js"></script> -->
-		<!-- <script src="scripts/controllers/jsonDataCtrl.js"></script> -->
+    <!-- build:js({.tmp,app}) src/scripts.js -->
+		<script src="src/app.js"></script>	
+		<script src="src/controllers/canvas.js"></script>
+		<script src="src/controllers/dashboard.js"></script>
+		<script src="src/controllers/animator.js"></script>
+    <script src="src/controllers/d3.js"></script>
+    <script src="src/controllers/jsonLoader.js"></script>
 		<!-- endbuild -->
 	</body>			
 </html>

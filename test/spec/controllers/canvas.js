@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: Dashboard', function () {
+describe('Controller: Canvas', function () {
 
   // load the controller's module
   beforeEach(
@@ -9,16 +9,16 @@ describe('Controller: Dashboard', function () {
     }
   );
 
-  var DashCtrl,
+  var CanvasCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
   	scope = $rootScope.$new();
-  	DashCtrl = $controller('Dashboard as DashCtrl', {$scope: scope});
+  	CanvasCtrl = $controller('Canvas as CanvasCtrl', {$scope: scope});
   }));
 
-  it('should attach a list of 4 dashboardItems', function () {
-    expect(scope.DashCtrl.dashboardItems.length).toBe(4);
+  it('should attach a list of awesomeThings to the scope', function () {
+    expect(scope.CanvasCtrl.elementID).toBe('canvasElem');
   });
 });

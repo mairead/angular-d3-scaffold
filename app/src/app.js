@@ -2,6 +2,10 @@
   'use strict';
 
   angular
-  .module('BigData', []);
+  .module('BigData', ['ngAnimate', 'BigDataFactories'])
+  .config(function($logProvider){
+    $logProvider.debugEnabled(true);
+	});
   
+
 })();
