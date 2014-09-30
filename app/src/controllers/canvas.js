@@ -6,7 +6,7 @@ var Canvas = (function () {
 	  .controller('Canvas', Canvas);
 
   function Canvas ($scope) {
-	  this.elementID = 'canvasElem'
+	  this.elementID = 'Canvas Element'
 	}
 
 	Canvas.$inject = ['$scope'];

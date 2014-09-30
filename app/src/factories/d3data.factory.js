@@ -1,13 +1,13 @@
-var dummyFactory = (function () {
+var d3DataFactory = (function () {
   'use strict';
 
   angular
-  .module('BigDataFactories', ['ngResource'])
-  .factory('dummyFactory', dummyFactory);
+  .module('d3Factory', ['ngResource'])
+  .factory('d3DataFactory', d3DataFactory);
 
-  dummyFactory.$inject = ['$resource', '$q', '$rootScope', '$http'];
+  d3DataFactory.$inject = ['$resource', '$q', '$rootScope', '$http'];
 
-  function dummyFactory ($resource, $q, $rootScope, $http) {
+  function d3DataFactory($resource, $q, $rootScope, $http) {
 
     var service = {
       getData : getData,
@@ -17,7 +17,7 @@ var dummyFactory = (function () {
     return service;
 
     function getData(){
-      return $http.get('src/dummy.json').then(setData);
+      return $http.get('src/d3Data.json').then(setData);
     }
     function setData(response){
       //has only retrieved the last item from the data feed? 
@@ -26,6 +26,6 @@ var dummyFactory = (function () {
     }
   }
 
-  return dummyFactory;
+  return d3DataFactory;
 
 })();

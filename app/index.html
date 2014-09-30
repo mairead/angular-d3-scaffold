@@ -7,6 +7,7 @@
 		<!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/ionic/release/css/ionic.css" />
+    <link rel="stylesheet" href="bower_components/nvd3/src/nv.d3.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -59,14 +60,17 @@
       </div>
 
       <div ng-controller="JsonLoader as vm" class="dashboard-item">
+        <h2>JSON data</h2>
         <div ng-repeat="dataItem in vm.dataItems">
           <p>{{dataItem.productName}}</p>
         </div>
         
       </div>
 
-      <div ng-controller="D3 as D3Ctrl" class="dashboard-item">
-        {{D3Ctrl.elementID}}
+      <div ng-controller="headD3 as vm" class="dashboard-item">
+        <h2>{{vm.elementID}}</h2>
+        
+        <nvd3 options='options' data='vm.dataItems' head-chart></nvd3>
       </div>
 
        </div>
@@ -79,27 +83,33 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-loader/angular-loader.js"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/ionic/release/js/ionic.js"></script>
     <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/nv.d3.js"></script>
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
+
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) src/scripts.js -->
 		<script src="src/app.js"></script>
-    <script src="src/factories/json.factory.js"></script>	 
+    <script src="src/factories/jsonData.factory.js"></script>
+    <script src="src/factories/d3Data.factory.js"></script>   
 		<script src="src/controllers/canvas.js"></script>
 		<script src="src/controllers/dashboard.js"></script>
 		<script src="src/controllers/animator.js"></script>
-    <script src="src/controllers/d3.js"></script>
+    <script src="src/controllers/headd3.js"></script>
     <script src="src/controllers/jsonLoader.js"></script>
     <script src="src/directives/hover.directive.js"></script>
     <script src="src/directives/canvas.directive.js"></script>
+    <script src="src/directives/d3chart.directive.js"></script>
 		<!-- endbuild -->
 	</body>			
 </html>

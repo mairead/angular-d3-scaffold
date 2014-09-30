@@ -5,12 +5,12 @@ var JsonLoader = (function () {
 	  .module('BigData')
 	  .controller('JsonLoader', JsonLoader);
 
-  function JsonLoader ($scope, dummyFactory) {
+  function JsonLoader ($scope, jsonDataFactory) {
   	var vm = this;
 	  
 	  vm.dataItems = [];
 
-	  vm.JsonData = showData();
+	  vm.jsonData = showData();
 
 	  loadData();
 
@@ -21,7 +21,7 @@ var JsonLoader = (function () {
 	  	})
 	  }
 	  function showData(){
-	  	return dummyFactory.getData()
+	  	return jsonDataFactory.getData()
 	  		.then(function(data){
 	  			vm.dataItems = data;
 	  			//console.log("data loaded in show method", vm.dataItems);
@@ -30,7 +30,7 @@ var JsonLoader = (function () {
 	  }
 	}
 
-	JsonLoader.$inject = ['$scope', 'dummyFactory'];
+	JsonLoader.$inject = ['$scope', 'jsonDataFactory'];
 
 	return JsonLoader;
 
