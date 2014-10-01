@@ -26,7 +26,7 @@ var headD3 = (function () {
 	  			vm.title = data[0].key;
           vm.dataItems = data;
 
-	  			console.log("data loaded in show method", vm.dataItems );
+	  			//console.log("data loaded in show method", vm.dataItems );
 	  			return vm.dataItems;
 	  		})
 	  }

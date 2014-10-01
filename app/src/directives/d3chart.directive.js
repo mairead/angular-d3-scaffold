@@ -9,14 +9,12 @@ var headChart = (function () {
 
     var directive = {
       link: link,
-      restrict: 'A',      
+      restrict: 'A'    
     }
 
     return directive;
 
     function link(scope, element){
-
-      console.log("data in dir", scope.vm.dataItems)
 
       scope.options = {
         chart: {

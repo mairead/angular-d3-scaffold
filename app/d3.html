@@ -40,13 +40,25 @@
         </ul>
         
       </nav>
+      <h1>Circle Jerking</h1>
 
-      
+     
+      <div ng-controller="PieChart as vm">
+        <head-pie data="vm.chartData"></head-pie>
+          <div class="sliders">
+            <div ng-repeat="dataItem in vm.chartData">
+              <input type="range" ng-model="dataItem.strength">
+              <label class="character-label"> {{dataItem.name}} </label>
+            </div>
+          </div>
+        
+      </div>
     </div>
 		
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-loader/angular-loader.js"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>
@@ -56,16 +68,27 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/ionic/release/js/ionic.js"></script>
     <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/nv.d3.js"></script>
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) src/scripts.js -->
-		<script src="src/app.js"></script>	
-		<script src="src/controllers/canvas.js"></script>
-		<script src="src/controllers/dashboard.js"></script>
-		<script src="src/controllers/animator.js"></script>
-    <script src="src/controllers/d3.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/factories/jsonData.factory.js"></script>
+    <script src="src/factories/d3Data.factory.js"></script>
+    <script src="src/filters/productize.filter.js"></script>   
+    <script src="src/controllers/canvas.js"></script>
+    <script src="src/controllers/dashboard.js"></script>
+    <script src="src/controllers/animator.js"></script>
+    <script src="src/controllers/headd3.js"></script>
     <script src="src/controllers/jsonLoader.js"></script>
-		<!-- endbuild -->
+    <script src="src/controllers/pieChart.js"></script>
+    <script src="src/directives/hover.directive.js"></script>
+    <script src="src/directives/canvas.directive.js"></script>
+    <script src="src/directives/d3chart.directive.js"></script>
+    <script src="src/directives/pieChart.directive.js"></script>
+    <!-- endbuild -->
 	</body>			
 </html>

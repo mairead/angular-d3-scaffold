@@ -62,7 +62,8 @@
       <div ng-controller="JsonLoader as vm" class="dashboard-item">
         <h2>JSON data</h2>
         <div ng-repeat="dataItem in vm.dataItems">
-          <p>{{dataItem.productName}}</p>
+
+          <p><span>{{dataItem.productID | productize}}</span> | <span>{{dataItem.productName}} </span> | <span>{{dataItem.productCost | currency:"£"}}</span></p>
         </div>
         
       </div>
@@ -94,14 +95,14 @@
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/nvd3/nv.d3.js"></script>
     <script src="bower_components/angular-nvd3/dist/angular-nvd3.min.js"></script>
-
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) src/scripts.js -->
 		<script src="src/app.js"></script>
     <script src="src/factories/jsonData.factory.js"></script>
-    <script src="src/factories/d3Data.factory.js"></script>   
+    <script src="src/factories/d3Data.factory.js"></script>
+    <script src="src/filters/productize.filter.js"></script>   
 		<script src="src/controllers/canvas.js"></script>
 		<script src="src/controllers/dashboard.js"></script>
 		<script src="src/controllers/animator.js"></script>
@@ -110,6 +111,8 @@
     <script src="src/directives/hover.directive.js"></script>
     <script src="src/directives/canvas.directive.js"></script>
     <script src="src/directives/d3chart.directive.js"></script>
+
+    
 		<!-- endbuild -->
 	</body>			
 </html>

@@ -7,8 +7,12 @@
 	float:left;
 }
 
-h2{
+h2, h1, .sliders{
 	padding:10px;
+}
+
+svg, .sliders{
+	float:left;
 }
 
 .navigation{
@@ -67,3 +71,8 @@ h2{
 /*.ng-enter.ng-enter-active {
 	
 }*/
+
+.character-label{
+	position: relative;
+	top: -14px;
+}
