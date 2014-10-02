@@ -7,13 +7,11 @@
 	float:left;
 }
 
-h2, h1, .sliders{
+h2, h1{
 	padding:10px;
 }
 
-svg, .sliders{
-	float:left;
-}
+
 
 .navigation{
 	padding: 5px;
@@ -71,8 +69,36 @@ svg, .sliders{
 /*.ng-enter.ng-enter-active {
 	
 }*/
-
 .character-label{
+	width: 75px;
+	display: inline-block;
+}
+.character-label, .remove-character{
 	position: relative;
 	top: -14px;
+}
+
+.add-character{
+	float: left;
+}
+
+.sliders{
+ 	padding: 5px;
+}
+
+svg, .sliders{
+	float:left;
+}
+
+.input-item{
+	padding: 10px
+}
+
+.input-item input{
+	border: 1px solid;
+	display: inline
+}
+
+.submit-character{
+
 }
