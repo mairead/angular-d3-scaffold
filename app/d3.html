@@ -42,12 +42,14 @@
       </nav>
      
       <div ng-controller="PieChart as vm">
-       
-        <div ng-repeat="chart in vm.characters">
-          <div head-multiple-charts chart="chart">
+        <div filter-chart class="character-filter" characters="vm.characters">
+          
+        </div>
+        <div class="character-controls">
+          <div ng-repeat="chart in vm.characters">
+            <div head-multiple-charts chart="chart"></div>
           </div>
         </div>
-        
       </div>
     </div>
 		
@@ -87,6 +89,7 @@
     <script src="src/directives/d3chart.directive.js"></script>
     <script src="src/directives/pieChart.directive.js"></script>
     <script src="src/directives/multiplecharts.directive.js"></script>
+    <script src="src/directives/filterChart.directive.js"></script>
     <!-- endbuild -->
 	</body>			
 </html>

@@ -37,7 +37,8 @@ var headMultipleCharts = (function () {
         $scope.newCharacter = null;
         var newCharacter = {
           "name" : data.name,
-          "strength": data.strength
+          "strength": data.strength,
+          "stamina": data.stamina
         }
         characterArray.push(newCharacter); 
       }

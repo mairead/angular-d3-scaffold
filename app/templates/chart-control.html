@@ -6,7 +6,7 @@
     <div ng-repeat="characterList in chart">
       <div ng-repeat="character in characterList">
         <input type="range" ng-model="character.strength" />
-        <label class="character-label"> {{character.name}} </label>
+        <label class="character-label"> {{character.name}} ({{character.stamina}})</label>
         <button ng-click="removeCharacter(character.name)" class="remove-character">Remove</button>
       </div>
     </div>
@@ -18,6 +18,9 @@
     </div>
     <div class="input-item">
       <label>Strength: </label><input type="text" ng-model="newCharacter.strength"/>
+    </div>
+    <div class="input-item">
+      <label>Stamina: </label><input type="text" ng-model="newCharacter.stamina"/>
     </div>
     <div class="input-item">
       <button ng-click="addCharacter(newCharacter)">Add</button>

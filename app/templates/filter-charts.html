@@ -1,0 +1,7 @@
+<h3>Filter by Stamina</h3>
+<ul>
+	<li ng-repeat"character in characters">
+		{{filter}}
+		<label><input type="checkbox" ng-click=filterCharts(filter) ng-model="filter">{{filter.value}}</label>
+	</li>
+</ul>

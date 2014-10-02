@@ -61,7 +61,7 @@ h2, h1{
 }
 
 .character-label{
-	width: 75px;
+	width: 100px;
 	display: inline-block;
 }
 
@@ -87,15 +87,39 @@ svg, .sliders{
 }
 
 .input-item{
-	padding: 5px
-}
-
-.input-item input{
-	border: 1px solid;
-	display: inline
+	padding: 5px;
+	float: left;
+	input{
+		border: 1px solid #666;
+		display: inline
+	}
+	button{
+		margin: 20px 0 0 0;
+		padding: 7px;
+	}
 }
 
 .chart-control{
-	clear:both;
+	overflow: hidden;
+	clear: both;
+	padding: 20px 0;
+	border-bottom: 1px solid #666;
 }
 
+.character-filter{
+	display: block;
+	background: #eee;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 5px;
+	width: 250px;
+}
+
+.character-filter h3{
+	font-size: 1.2em;
+}
+
+
+.character-filter, .character-controls{
+	float: left;
+}
