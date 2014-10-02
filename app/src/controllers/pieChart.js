@@ -5,39 +5,28 @@ var PieChart = (function () {
 	  .module('BigData')
 	  .controller('PieChart', PieChart);
 
-  function PieChart ($scope) {
+  function PieChart ($scope, pieChartFactory) {
   	var vm = this;
 
-  	vm.chartData = [
-  		{"name": "He Man", "strength": 25},
-  		{"name": "She Ra", "strength": 25},
-  		{"name": "Cringer", "strength": 25},
-      {"name": "Swift Wind", "strength": 25}
-  	];
+    vm.characters = [];
 
-    vm.characters = [
-      {"Grayskull":[
-        {"name": "He Man", "strength": 25},
-        {"name": "She Ra", "strength": 25},
-        {"name": "Cringer", "strength": 25},
-        {"name": "Swift Wind", "strength": 25}
-      ]},
-      {"Thundercats":[ 
-        {"name": "Panthero", "strength": 10},
-        {"name": "Tigra", "strength": 20},
-        {"name": "Liono", "strength": 30},
-        {"name": "Cheetara", "strength": 40}
-      ]},
-      {"Muskehounds":[
-        {"name": "Dogtanian", "strength": 15},
-        {"name": "Athos", "strength": 25},
-        {"name": "Aramis", "strength": 35}
-      ]}
-    ];
+    loadData();
+
+    function loadData(){
+      return showData().then(function(){
+      })
+    }
+    function showData(){
+    return pieChartFactory.getData()
+      .then(function(data){
+        vm.characters = data;
+        return vm.characters;
+      })
+    }
 
 	}
 
-	PieChart.$inject = ['$scope'];
+	PieChart.$inject = ['$scope', 'pieChartFactory'];
 
 	return PieChart;
 
