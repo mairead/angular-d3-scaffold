@@ -9,6 +9,7 @@ var headPie = (function () {
 
     var directive = {
       link: link,
+      controller: controller,
       restrict: 'E',
       scope: { 
         data: '=',
@@ -17,6 +18,14 @@ var headPie = (function () {
     }
 
     return directive;
+
+    function controller($scope){
+
+      $scope.getName = function(index){
+        //retrieve name from character list with index
+        return d3.values($scope.data)[0][index].name
+      }
+    };
 
     function link(scope, element, attr){
       var svg = d3.select(element[0]).append('svg');
@@ -42,12 +51,29 @@ var headPie = (function () {
       .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
       // add the <path>s for each arc slice
-      g.selectAll('path').data(pie(data))
-      .enter().append('path')
-      .style('stroke', 'white')
-      .attr('d', arc)
-      .attr('fill', function(d, i){ return color(i) });
+      var arcs = g.selectAll('path').data(pie(data));
 
+      var text;
+
+      arcs
+        .enter().append('path')
+        .style('stroke', 'white')
+        .attr('d', arc)
+        .attr('fill', function(d, i){ return color(i) })
+        .on("mouseenter", function(d, i) {
+          // text = d3.select(this)
+          text = g
+            .append("text")
+            .attr("dy", ".5em")
+            .style("text-anchor", "middle")
+            .style("fill", "black")
+            .text(scope.getName(i));
+        })
+        .on("mouseout", function(d) {
+          text.remove();
+          //Need to remove text if user moves around path not just off path
+        });
+      
       //udpate pie chart when sliders are moved
       scope.$watch('data',function(){
         characterArray = d3.values(scope.data)[0];
