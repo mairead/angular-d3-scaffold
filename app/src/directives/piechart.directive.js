@@ -10,20 +10,24 @@ var headPie = (function () {
     var directive = {
       link: link,
       restrict: 'E',
-      scope: { data: '=' }    
+      scope: { 
+        data: '=',
+        chart: '=' 
+      }    
     }
 
     return directive;
 
     function link(scope, element, attr){
-
       var svg = d3.select(element[0]).append('svg');
+  
+      //using lo-dash here to massage data object/sanitise data
+      var characterArray = d3.values(scope.data)[0];
+      var data = _.pluck(characterArray, 'strength');
 
-      //using lo-dash here to massage data object
-      var data = _.pluck(scope.data, 'strength');
       var color = d3.scale.category10();
-      var width = 250;
-      var height = 250;
+      var width = 200;
+      var height = 200;
       var min = Math.min(width, height);
 
       var pie = d3.layout.pie().sort(null);
@@ -46,7 +50,8 @@ var headPie = (function () {
 
       //udpate pie chart when sliders are moved
       scope.$watch('data',function(){
-        data = _.pluck(scope.data, 'strength');
+        characterArray = d3.values(scope.data)[0];
+        data = _.pluck(characterArray, 'strength');
       
         // console.log(data.length, scope.data)
         var arcs = g.selectAll('path').data(pie(data))
@@ -54,7 +59,7 @@ var headPie = (function () {
         arcs.attr('d', arc)
           .enter().append('path') //enter here doesn't trigger colour being added?
           .style('stroke', 'white')
-          .attr('fill', function(d, i){ console.log(i); return color(i) })
+          .attr('fill', function(d, i){ return color(i) })
           
           arcs.exit().remove()
           

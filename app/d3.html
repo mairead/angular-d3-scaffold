@@ -40,29 +40,14 @@
         </ul>
         
       </nav>
-      <h1>Circle Jerking</h1>
-
      
       <div ng-controller="PieChart as vm">
-        <head-pie data="vm.chartData"></head-pie>
-          <div class="sliders">
-            <div ng-repeat="dataItem in vm.chartData">
-              <input type="range" ng-model="dataItem.strength" />
-              <label class="character-label"> {{dataItem.name}} </label>
-              <button ng-click="removeCharacter(dataItem.name)"  class="remove-character">Remove</button>
-            </div>
+       
+        <div ng-repeat="chart in vm.characters">
+          <div head-multiple-charts chart="chart">
           </div>
-          <div class="add-character">
-            <div class="input-item">
-              <label>Name: </label><input type="text" ng-model="vm.newCharacter.name"/>
-            </div>
-            <div class="input-item">
-              <label>Strength: </label><input type="text" ng-model="vm.newCharacter.strength"/>
-            </div>
-            <div class="input-item">
-              <button ng-click="addCharacter(vm.newCharacter)">Add</button>
-            </div>
-          </div>
+        </div>
+        
       </div>
     </div>
 		
@@ -100,6 +85,7 @@
     <script src="src/directives/canvas.directive.js"></script>
     <script src="src/directives/d3chart.directive.js"></script>
     <script src="src/directives/pieChart.directive.js"></script>
+    <script src="src/directives/multiplecharts.directive.js"></script>
     <!-- endbuild -->
 	</body>			
 </html>

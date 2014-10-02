@@ -11,8 +11,6 @@ h2, h1{
 	padding:10px;
 }
 
-
-
 .navigation{
 	padding: 5px;
 	li{ 
@@ -36,7 +34,6 @@ h2, h1{
 	background: #eee;
 }
 
-
 .animation-block{
 	background: hotPink;
 	color: #fff;
@@ -53,37 +50,36 @@ h2, h1{
 	transition: 1s linear all;
 }
 
-
 //These are applied when the element actually appears on the screen (or is removed)
-/*.animation-block.ng-enter { }  */      /* starting animations for enter */
-/*.animation-block.ng-enter.ng-enter-active { } *//* terminal animations for enter */
-/*.animation-block.ng-leave { }  */      /* starting animations for leave */
-/*.animation-block.ng-leave.ng-leave-active { }*/ /* terminal animations for leave */
-
+/*.ng-enter { }  */      /* starting animations for enter */
+/*.ng-enter.ng-enter-active { } *//* terminal animations for enter */
+/*.ng-leave { }  */      /* starting animations for leave */
+/*.ng-leave.ng-leave-active { }*/ /* terminal animations for leave */
 
 .animation-block.anim-fade-out {
-
 	opacity: 0;
 }
- 
-/*.ng-enter.ng-enter-active {
-	
-}*/
+
 .character-label{
 	width: 75px;
 	display: inline-block;
 }
+
 .character-label, .remove-character{
 	position: relative;
-	top: -14px;
+	top: -10px;
 }
 
 .add-character{
 	float: left;
+	margin-left: 10px;
 }
 
 .sliders{
  	padding: 5px;
+ 	input[type="range"]{
+ 		height: 25px;
+ 	}
 }
 
 svg, .sliders{
@@ -91,7 +87,7 @@ svg, .sliders{
 }
 
 .input-item{
-	padding: 10px
+	padding: 5px
 }
 
 .input-item input{
@@ -99,6 +95,6 @@ svg, .sliders{
 	display: inline
 }
 
-.submit-character{
-
+.chart-control{
+	clear:both;
 }
