@@ -77,6 +77,9 @@ var filterChart = (function () {
         //construct array of missing values
         $scope.unSelectedFilters = _.xor($scope.possibleFilters, $scope.selectedFilters);
       
+        //TODO: Can these multiple for each loops be translated into a map function instead? 
+        //how to use better functional programming methods instead
+
         //determine which items in vm.characters have stamina that match selected
         _.forEach($scope.unSelectedFilters, function(v){
             var staminaFilter = v;
@@ -91,6 +94,7 @@ var filterChart = (function () {
             characterArray[characterList] = filteredCharacters;
 
             //TODO: this is destructive. Can't add items back in :(
+              //Should this be a custom filter? using the filter options
 
           })
         })
