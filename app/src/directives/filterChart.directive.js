@@ -94,7 +94,14 @@ var filterChart = (function () {
             characterArray[characterList] = filteredCharacters;
 
             //TODO: this is destructive. Can't add items back in :(
-              //Should this be a custom filter? using the filter options
+            //Should this be a custom filter? using the filter options
+
+            //TODO: When adding a new item with a filtered stamina then 
+            //it should stay hidden OR force all filters back to showing when add?
+
+            //TODO: If all items with a stamina are removed then the filter
+            //item should disappear. Needs better binding between values
+
 
           })
         })
