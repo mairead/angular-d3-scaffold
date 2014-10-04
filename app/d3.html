@@ -42,10 +42,10 @@
       </nav>
      
       <div ng-controller="PieChart as vm">
-        <div filter-chart class="character-filter" characters="vm.characters">
-          
-        </div>
+
+        <div filter-chart class="character-filter" characters="vm.characters"></div>
         <div class="character-controls">
+    
           <div ng-repeat="chart in vm.characters">
             <div head-multiple-charts chart="chart"></div>
           </div>

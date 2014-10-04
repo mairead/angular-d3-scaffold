@@ -5,7 +5,7 @@ var headHoverAnim = (function () {
 	  .module('BigData')
 	  .directive('headHoverAnim', headHoverAnim);
 
-  function headHoverAnim ($animate) {
+  function headHoverAnim () {
 
   	var directive = {
   		link: link,

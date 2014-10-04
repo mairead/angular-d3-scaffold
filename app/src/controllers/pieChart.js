@@ -9,7 +9,8 @@ var PieChart = (function () {
   	var vm = this;
 
     vm.characters = [];
-
+    // vm.filters = [0,1,2];
+    
     loadData();
 
     function loadData(){

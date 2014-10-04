@@ -5,7 +5,9 @@ var filterChart = (function () {
 	  .module('BigData')
 	  .directive('filterChart', filterChart);
 
-  function filterChart () {
+    filterChart.$inject = ['$compile'];
+
+  function filterChart ($compile) {
 
   	var directive = {
   		link: link,
@@ -19,7 +21,8 @@ var filterChart = (function () {
 
   	return directive;
 
-    function controller($scope, $attrs){
+
+    function controller($scope, $attrs, $element){
 
       $scope.$watch('characters', function(){
         if($scope.characters.length > 0){
@@ -40,11 +43,6 @@ var filterChart = (function () {
         //get uniq values
         $scope.filters = _.uniq(filters).sort();
 
-        $scope.populateFilterList();
-      };
-
-      $scope.populateFilterList = function(){
-
       };
 
       $scope.filterCharts = function(item){
@@ -55,8 +53,12 @@ var filterChart = (function () {
 
   	function link(scope, element, attrs){
 
-      scope.filters = [0,1,2]
-
+      //have to dynamically compile template as filter values are retrieved after link runs
+      scope.$watch(scope.filters, function(){
+        var template = "<div ng-repeat='item in filters'>{{item}}<div>";
+        var content = $compile(template)(scope);;
+        element.append(content);
+      })
   	}
 
   }
