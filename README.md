@@ -1,5 +1,5 @@
-Angular boilerplate
-====================
+Angular d3 Scaffolding
+=======================
 
 Uses a combination of angular generator for Grunt config and angular seed for lighter library use
 
